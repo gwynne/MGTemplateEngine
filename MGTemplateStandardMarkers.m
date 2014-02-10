@@ -164,8 +164,8 @@
 				// Check that endArg is a collection.
 				NSObject *obj = [engine resolveVariable:endArg];
 				if (obj && [obj respondsToSelector:@selector(objectEnumerator)] && [obj respondsToSelector:@selector(count)]) {
-					endIndex = (NSInteger)[(NSArray *)obj count];
-					if (endIndex > 0) {
+					endIndex = (NSInteger)[(NSArray *)obj count] - 1;
+					if (endIndex >= 0) {
 						loopEnumObject = obj;
 						valid = YES;
 					}
